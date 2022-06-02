@@ -1,3 +1,5 @@
+import keyInput from "./KeyInput";
+
 const ratio = window.innerWidth / window.innerHeight ; 
 const scene = new THREE.Scene();
 //scene is basically the scene that we will be seeing , it is kind of a stage

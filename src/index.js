@@ -1,4 +1,4 @@
-import keyInput from "./KeyInput";
+
 
 const ratio = window.innerWidth / window.innerHeight ; 
 const scene = new THREE.Scene();
@@ -13,6 +13,39 @@ const light = new THREE.AmbientLight(0xffffff);
 const dLight = new THREE.DirectionalLight(0xffffff , 0.5);
 light.add(dLight);
 scene.add(light);
+
+window.addEventListener("keydown", function (event) {
+	if (event.defaultPrevented) {
+	  return; // Do nothing if the event was already processed
+	}
+  
+	switch (event.key) {
+	  case "ArrowDown":
+	  
+		
+		moveDown();
+
+		break;
+	  case "ArrowUp":
+		
+		
+		moveUp();
+		break;
+	  case "ArrowLeft":
+
+		console.log("KeyLeft");
+		break;
+	  case "ArrowRight":
+ 
+		console.log("KeyRight");
+		break;
+	  default:
+		return; // Quit when this doesn't handle the key event.
+	}
+  
+	// Cancel the default action to avoid it being handled twice
+	event.preventDefault();
+  }, true);
 
 
 const platform  = createObjects( 50, 0.1, 50 , 0x6699ff );
@@ -45,4 +78,28 @@ const material = new THREE.MeshBasicMaterial( { color: color } );
 const ground = new THREE.Mesh( geometry, material );
 
 return ground;
+}
+
+
+function moveUp(){
+	console.log("KeyUp");
+camera.position.x+=0.5;
+camera.position.y+=0.5;
+}
+
+function moveDown(){
+	console.log("KeyDown");
+	camera.position.x-=0.5;
+	camera.position.y-=0.5;
+}
+
+function moveLeft(){
+
+
+}
+
+
+function moveRight(){
+
+
 }
